@@ -1,9 +1,12 @@
-var express = require('express');
+var express = require('express'),
+	wget = require("wgetjs"),
+	config = require("./lib/config")(__dirname + "/config.json");
+
 var app = express();
 
 app.use(express.bodyParser());
 app.use(express.methodOverride());
-app.use(express.logger());
+//app.use(express.logger());
 app.use(express.static(__dirname + '/public'));
 app.use(app.router);
 
@@ -13,6 +16,18 @@ app.use(function(err, req, res, next){
 });
 
 app.get("/", function(req, res) {
+	console.log("[", new Date(), "]", "Downloading", req.query.url);
+	wget({
+		url: req.query.url,
+		dest: config.dest
+	}, function(err, data) {
+		if(err) {
+			console.err("[", new Date(), "]", "Error downloading", req.query.url, err);
+		} else {
+			console.log("[", new Date(), "]", "Download of", req.query.url, "complete");
+		}
+	});
+
 	res.send("Hello world");
 });
 
