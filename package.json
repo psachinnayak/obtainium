@@ -1,0 +1,12 @@
+{
+  "name": "obtanium",
+  "version": "0.0.1",
+  "description": "A node based download manager. Bringing back download managers from the 1990s.",
+  "main": "index.js",
+  "author": "Rakesh Pai <rakeshpai@gmail.com>, Naresh Jain <nashjain@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "async": "~0.2.9",
+    "express": "~3.4.0"
+  }
+}
