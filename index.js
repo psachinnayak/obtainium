@@ -2,7 +2,8 @@ var express = require('express'),
 	wget = require("wgetjs"),
 	fs = require("fs"),
 	path = require("path"),
-	config = require("./lib/config")(__dirname + "/config.json");
+	config = require("./lib/config")(__dirname + "/config.json"),
+	plugins = require("./lib/plugins")(config);
 
 var app = express();
 
@@ -23,21 +24,13 @@ app.get("/", function(req, res) {
 });
 
 app.put("/downloads", function(req, res) {
-	console.log(req.body);
+	plugins.download(req.body.url);
 	res.send({done: true});
 });
 
 app.get("/tmp", function(req, res) {
-	console.log("[", new Date(), "]", "Downloading", req.query.url);
-	wget({
-		url: req.query.url,
-		dest: config.dest
-	}, function(err, data) {
-		if(err) {
-			console.err("[", new Date(), "]", "Error downloading", req.query.url, err);
-		} else {
-			console.log("[", new Date(), "]", "Download of", req.query.url, "complete");
-		}
+	plugin.canYouHandle(function(err, yesICan) {
+
 	});
 
 	res.send("Hello world");
