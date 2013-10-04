@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -84,7 +83,7 @@
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 						<h4 class="modal-title" id="addModalTitle">Add a thing to download</h4>
 					</div>
-					<form method="put" action="/downloads" role="form">
+					<form method="put" action="/downloads" role="form" data-success="obtainium.added" data-failure="obtainium.added.failure">
 						<div class="modal-body">
 							<div class="form-group">
 								<label for="url">URL</label>
