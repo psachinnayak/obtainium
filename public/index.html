@@ -90,21 +90,20 @@
 						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 						<h4 class="modal-title" id="addModalTitle">Add a thing to download</h4>
 					</div>
-					<div class="modal-body">
-						<form method="post" action="/downloads" role="form">
-							<input type="hidden" name="_method" value="put" />
+					<form method="put" action="/downloads" role="form">
+						<div class="modal-body">
 							<div class="form-group">
 								<label for="url">URL</label>
-								<input type="text" class="form-control" id="url" placeholder="http://example.com/" autofocus>
+								<input type="text" name="url" class="form-control" id="url" placeholder="http://example.com/" autofocus>
 							</div>
-						</form>
-					</div>
-					<div class="modal-footer">
-						<a href="#" data-dismiss="modal">Cancel</a> &nbsp;
-						<button type="button" class="btn btn-success">
-							<span class="glyphicon glyphicon-plus"></span> Add
-						</button>
-					</div>
+						</div>
+						<div class="modal-footer">
+							<a href="#" data-dismiss="modal">Cancel</a> &nbsp;
+							<button type="submit" class="btn btn-success">
+								<span class="glyphicon glyphicon-plus"></span> Add
+							</button>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
@@ -114,5 +113,6 @@
 		<!-- Placed at the end of the document so the pages load faster -->
 		<script src="js/jquery.js"></script>
 		<script src="js/bootstrap.min.js"></script>
+		<script src="js/obtainium.js"></script>
 	</body>
 </html>

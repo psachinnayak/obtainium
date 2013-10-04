@@ -22,6 +22,11 @@ app.get("/", function(req, res) {
 	fs.readFile(path.join(__dirname, "public", "index.html")).pipe(res);
 });
 
+app.put("/downloads", function(req, res) {
+	console.log(req.body);
+	res.send({done: true});
+});
+
 app.get("/tmp", function(req, res) {
 	console.log("[", new Date(), "]", "Downloading", req.query.url);
 	wget({
