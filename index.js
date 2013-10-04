@@ -1,5 +1,7 @@
 var express = require('express'),
 	wget = require("wgetjs"),
+	fs = require("fs"),
+	path = require("path"),
 	config = require("./lib/config")(__dirname + "/config.json");
 
 var app = express();
@@ -16,6 +18,11 @@ app.use(function(err, req, res, next){
 });
 
 app.get("/", function(req, res) {
+	res.headers["Content-Type"] = "text/html";
+	fs.readFile(path.join(__dirname, "public", "index.html")).pipe(res);
+});
+
+app.get("/tmp", function(req, res) {
 	console.log("[", new Date(), "]", "Downloading", req.query.url);
 	wget({
 		url: req.query.url,
