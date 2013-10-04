@@ -7,6 +7,7 @@
   "license": "MIT",
   "dependencies": {
     "async": "~0.2.9",
-    "express": "~3.4.0"
+    "express": "~3.4.0",
+    "wgetjs": "~0.3.3"
   }
 }
